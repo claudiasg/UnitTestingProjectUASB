@@ -16,32 +16,50 @@ import org.junit.Test;
 public class AnalyzerTest {
 	@Test
 	public void testReadFileEmpty() {
-		List<Sentence> ListaVaciaResult=Analyzer.readFile("archivo.txt");
+		List<Sentence> ListaVaciaResult=Analyzer.readFile("archivoVacio.txt");
 		assertEquals(0, ListaVaciaResult.size());		
 	}
 	
+	@Test
+	public void testReadFile() {
+		List<Sentence> ListaVaciaResult=Analyzer.readFile("archivo.txt");
+		assertEquals(6, ListaVaciaResult.size());		
+	}
+	
+	@Test
+	public void testReadReturnList6Elements() {
+		List<Sentence> ListaResult=Analyzer.readFile("archivo.txt");
+		assertEquals(6, ListaResult.size());		
+	}
 	@Test
 	public void testReadFileStringEntry() {
 		String nombreArchivo="archivo.txt";
 		String extencionArchivo=nombreArchivo.substring((nombreArchivo.length())-3, nombreArchivo.length());		
 		assertTrue(extencionArchivo.equals("txt"));		
 	}
-	
-	@Test
-	public void testReadReturnList6Elements() {
-		List<Sentence> ListaVaciaResult=Analyzer.readFile("archivo.txt");
-		assertEquals(6, ListaVaciaResult.size());		
-	}
+
 		
 	@Test
-	public void testAllWords() {
+	public void testAllWordsReturnList2Words() {
 		List<Sentence> Lista= new ArrayList<Sentence>();
 		Sentence sentence= new Sentence(5, "Web develop");
 		Lista.add(sentence);
 		Set<Word> ListaPalabrasResult=Analyzer.allWords(Lista);
 		assertEquals(2, ListaPalabrasResult.size());		
 	}
-	
+	@Test
+    public void testMapaVacio() {
+        Set<Word> listaPalabrasVacia = new TreeSet<Word>();
+        List<Sentence> listaVacia = new ArrayList<Sentence>();
+        listaVacia = Analyzer.readFile("archivoVacio.txt");
+        listaPalabrasVacia = Analyzer.allWords(listaVacia);
+
+        Map<String, Double> mapa = new HashMap<String, Double>();
+        mapa = Analyzer.calculateScores(listaPalabrasVacia);
+
+
+        assertEquals(0, mapa.size());
+    }
 	
   /*  @Test
     public void testSomeLibraryMethod() {
