@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Analyzer {
 
@@ -32,9 +34,31 @@ public class Analyzer {
 				String score = linea.substring(0, linea.indexOf(" "));
 				String text = linea.substring(linea.indexOf(" ") + 1, linea.length());
 				
-				Sentence sentence = new Sentence(Integer.valueOf(score), text);
+				/*boolean esLetra = text.matches("[a-z ]*");
+				//Pattern p = Pattern.compile("[a-z].*");
+				if((((Integer.parseInt(score))==-2)||((Integer.parseInt(score))==-1)||((Integer.parseInt(score))==0)||((Integer.parseInt(score))==1)||((Integer.parseInt(score))==2))
+					&&(true==esLetra)	)
+				{
+					Sentence sentence = new Sentence(Integer.valueOf(score), text);
+					
+					listSentences.add(sentence);
+				}
+				String espacio=" ";
+				String patron="%d"+espacio+"%s";
+				String resultado=String.format(patron,score,text);
+				if (resultado==linea) {
+					Sentence sentence = new Sentence(Integer.valueOf(score), text);
+					listSentences.add(sentence);
+				}*/
 				
-				listSentences.add(sentence);
+				  Pattern patternLine = Pattern.compile("^[+-]?[0-2]{1}\\s{1}[a-zA-Z\\u00f1\\u00d1 ]*$");
+	                Matcher matcherLine = patternLine.matcher(linea);
+
+	                if (matcherLine.matches()) {
+	                    Sentence sentence = new Sentence(Integer.valueOf(score), text);
+	                    listSentences.add(sentence);
+	                }
+				
 			}
 
 		} catch (Exception ex) {
@@ -78,10 +102,20 @@ public class Analyzer {
         	for (Sentence sentence : sentences) {
         		String[] palabras = sentence.text.split(" ");
         		for (String palabr : palabras) {
-        			if (palabraBuscar.equals(palabr.toLowerCase().trim())) {
+    			if (palabraBuscar.equals(palabr.toLowerCase().trim())) {
+    				palabra.increaseTotal(sentence.getScore());
+    			}
+    		}
+        		/*
+        		for(int i=1; i<=palabras.toString().length();i++)
+        		{
+        			if(palabraBuscar.equals(palabras[i].toLowerCase().trim()))
+        			{
         				palabra.increaseTotal(sentence.getScore());
         			}
-        		}
+        		
+        		
+        		}*/
         		
         	}
         	numeroSentimiento = 0;
