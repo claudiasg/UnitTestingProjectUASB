@@ -13,6 +13,7 @@ import org.junit.Test;
 public class CalculateScoreTest {	
 	
 	//Pruebas calculateScores
+	//En esta parte se deberia realizar las pruebas sin utilizar las funciones ReadFile y AllWors para que sean Totalmnte independientes 
 	  @Test
 	    public void testCalculateScores1WordMuch() {
 	        Set<Word> listWords = new TreeSet<Word>();
