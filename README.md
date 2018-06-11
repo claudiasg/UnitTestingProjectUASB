@@ -1,4 +1,5 @@
 # UnitTestingProjectUASB
+[![Build Status](https://travis-ci.org/claudiasg/UnitTestingProjectUASB.svg?branch=master)](https://travis-ci.org/claudiasg/UnitTestingProjectUASB)
 Pruebas_Unitarias_Sentimiento
 
 Contexto
