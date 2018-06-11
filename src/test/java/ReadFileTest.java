@@ -34,7 +34,7 @@ public class ReadFileTest {
 			assertEquals(numeroTotalLineas, ListaResult.size());		
 		}
 		@Test
-		public void testReadFileStringEntry() {
+		public void testReadFileFormatTxt() {
 			String nombreArchivo="archivo.txt";
 			String extencionArchivoResult=nombreArchivo.substring((nombreArchivo.length())-3, nombreArchivo.length());
 			String extensioArchivo="txt"; 

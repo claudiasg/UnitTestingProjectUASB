@@ -13,24 +13,25 @@ import org.junit.Test;
 public class CalculateScoreTest {	
 	
 	//Pruebas calculateScores
-	//En esta parte se deberia realizar las pruebas sin utilizar las funciones ReadFile y AllWors para que sean Totalmnte independientes 
+	
 	  @Test
 	    public void testCalculateScores1WordMuch() {
-	        Set<Word> listWords = new TreeSet<Word>();
+	        Set<Word> ListaPalabrasResult = new TreeSet<Word>();
 	        List<Sentence> list = new ArrayList<Sentence>();
 	        list = Analyzer.readFile("archivo.txt");
-	        listWords = Analyzer.allWords(list);
+	        ListaPalabrasResult = Analyzer.allWords(list);
 
 	        Map<String, Double> map = new HashMap<String, Double>();
-	        map = Analyzer.calculateScores(listWords);
+	        map = Analyzer.calculateScores(ListaPalabrasResult);
 
-	        double score = 0;
+	        double scoreResult = 0;
 	        for (Map.Entry<String, Double> entry : map.entrySet()) {
 	            if ("much".equals(entry.getKey())) {
-	                score = entry.getValue();
+	            	scoreResult = entry.getValue();
 	            }
 	        }
-	        assertEquals("1.0", String.valueOf(score));
+	        double scoreEsperado=1.0;
+	        assertEquals(String.valueOf(scoreEsperado), String.valueOf(scoreResult));
 	    }
 	  @Test
 		public void testCalculateScores2NegativowouldThis() {
@@ -41,31 +42,33 @@ public class CalculateScoreTest {
 			 Map<String, Double> map = new HashMap<String, Double>();
 		        map = Analyzer.calculateScores(ListaPalabrasResult);
 
-		        double score = 0;
+		        double scoreResult = 0;
 		        for (Map.Entry<String, Double> entry : map.entrySet()) {
 		            if ("would".equals(entry.getKey())) {
-		                score = entry.getValue();
+		            	scoreResult = entry.getValue();
 		            }
 		        }
-		        assertEquals("-2.0", String.valueOf(score));		
+		        double scoreEsperado=-2.0;
+		        assertEquals(String.valueOf(scoreEsperado), String.valueOf(scoreResult));
 		}
 	  @Test
 	    public void testCalculateScores05WordThis() {
-	        Set<Word> listWords = new TreeSet<Word>();
+	        Set<Word> ListaPalabrasResult = new TreeSet<Word>();
 	        List<Sentence> list = new ArrayList<Sentence>();
 	        list = Analyzer.readFile("archivo.txt");
-	        listWords = Analyzer.allWords(list);
+	        ListaPalabrasResult = Analyzer.allWords(list);
 
 	        Map<String, Double> map = new HashMap<String, Double>();
-	        map = Analyzer.calculateScores(listWords);
+	        map = Analyzer.calculateScores(ListaPalabrasResult);
 
-	        double score = 0;
+	        double scoreResult = 0;
 	        for (Map.Entry<String, Double> entry : map.entrySet()) {
 	            if ("this".equals(entry.getKey())) {
-	                score = entry.getValue();
+	            	scoreResult = entry.getValue();
 	            }
 	        }
-	        assertEquals("0.5", String.valueOf(score));
+	        double scoreEsperado=0.5;
+	        assertEquals(String.valueOf(scoreEsperado), String.valueOf(scoreResult));
 	    }
 	   
 	  
