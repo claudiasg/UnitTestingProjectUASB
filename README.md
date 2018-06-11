@@ -1,9 +1,9 @@
 # UnitTestingProjectUASB
 [![Build Status](https://travis-ci.org/claudiasg/UnitTestingProjectUASB.svg?branch=master)](https://travis-ci.org/claudiasg/UnitTestingProjectUASB)
 
-Pruebas_Unitarias_Sentimiento
+## Pruebas_Unitarias_Sentimiento
 
-# Contexto
+### Contexto
 El análisis del sentimiento es una tarea del campo de la lingüística computacional que busca determinar la actitud general de una determinada pieza de texto. Por ejemplo, nos gustaría tener un programa que pueda ver el texto "Esta tarea fue alegre y un placer" y darse cuenta de que fue una afirmación positiva, mientras que "Me hizo querer sacarme el pelo" es negativo.
 
 Un algoritmo que podemos usar para esto es asignar un valor numérico a cualquier palabra dada en función de qué tan positiva o negativa es esa palabra y luego determinar el sentimiento general de la declaración en función de los valores promedio de las palabras.
