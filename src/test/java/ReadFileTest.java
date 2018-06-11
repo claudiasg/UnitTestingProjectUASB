@@ -10,30 +10,35 @@ public class ReadFileTest {
 		@Test
 		public void testReadFileEmpty() {
 			List<Sentence> ListaVaciaResult=Analyzer.readFile("archivoVacio.txt");
-			assertEquals(0, ListaVaciaResult.size());		
+			int numeroLineas=0;
+			assertEquals(numeroLineas, ListaVaciaResult.size());		
 		}
 		
 		@Test
 		public void testReadFile() {
 			List<Sentence> ListaVaciaResult=Analyzer.readFile("archivo.txt");
-			assertEquals(6, ListaVaciaResult.size());		
+			int numeroLineas=6;
+			assertEquals(numeroLineas, ListaVaciaResult.size());		
 		}
 		@Test
 		public void testReadFileCorrectFormatReturn3() {
 			List<Sentence> ListaVaciaResult=Analyzer.readFile("archivoFormato.txt");
-			assertEquals(3, ListaVaciaResult.size());		
+			int numeroLineasCorrectas=3;
+			assertEquals(numeroLineasCorrectas, ListaVaciaResult.size());		
 		}
 		
 		@Test
 		public void testReadReturnList6Elements() {
 			List<Sentence> ListaResult=Analyzer.readFile("archivo.txt");
-			assertEquals(6, ListaResult.size());		
+			int numeroTotalLineas=6;
+			assertEquals(numeroTotalLineas, ListaResult.size());		
 		}
 		@Test
 		public void testReadFileStringEntry() {
 			String nombreArchivo="archivo.txt";
-			String extencionArchivo=nombreArchivo.substring((nombreArchivo.length())-3, nombreArchivo.length());		
-			assertTrue("El archivo debe tener extension txt",extencionArchivo.equals("txt"));		
+			String extencionArchivoResult=nombreArchivo.substring((nombreArchivo.length())-3, nombreArchivo.length());
+			String extensioArchivo="txt"; 
+			assertTrue("El archivo debe tener extension txt",extencionArchivoResult.equals(extensioArchivo));		
 		}
 
 	
